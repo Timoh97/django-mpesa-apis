@@ -23,8 +23,8 @@ class LipanaMpesaPpassword:
     lipa_time = datetime.now().strftime('%Y%m%d%H%M%S')
     Business_short_code = "174379" #for stk push
     Test_c2b_shortcode = "600344" #for C2B 
-    passkey = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919'  #input your passkey from the safaricom dev portal
-    security_credential = "bkg6VGNIs58rDVdIPIgfPYZ/GZzhvez/5pOjt64IX67DnQw9EkPZr5E9SvelO+W62oboDw6IqNSTulOD5T/FJI6vn4T/lyp9dLWuelQWaE4JF/6aN1S7zYI/NL3+j5a988sJe9wQQ9BsHs/4Ny2sQs0OuYAYKI23PzvLGzLCUZmwhajzduruPFKUwyn7HGI8PApsvg898Gk1m/UbctXyPo8Yowp5LnIiyGGEkyb3EUuafL58q/fl0GzayZZkfXJ6a7P1HBQ0CIWoTdc90D1hOfIav8JPo/ZSTP1XYmUYLChJdnFUOQwkveF3dZ06uJMS2gSM4cXIYImUbypySGf0cA=="
+    passkey = ''  #input your passkey from the safaricom dev portal
+    security_credential = "" #add your security credential
     data_to_encode = Business_short_code + passkey + lipa_time
 
     online_password = base64.b64encode(data_to_encode.encode())
