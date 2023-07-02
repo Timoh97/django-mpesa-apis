@@ -8,7 +8,7 @@ from .models import MpesaPayment
 from django.conf import settings
 # start of the stk integration
 def getAccessToken(request):
-    consumer_key= "" #input your consumer key from the sandbox  
+    consumer_key= settings.c2b_consumer_key #input your consumer key from the sandbox  
     consumer_secret  = "" #input your consumer secret from the sandbox
     api_URL = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
 
@@ -103,7 +103,7 @@ def confirmation(request):
 #     headers = {"Authorization": "Bearer %s" % access_token}
 #     Body = {
 #         "InitiatorName": "testapi",
-#         
+#         "SecurityCredential": "bkg6VGNIs58rDVdIPIgfPYZ/GZzhvez/5pOjt64IX67DnQw9EkPZr5E9SvelO+W62oboDw6IqNSTulOD5T/FJI6vn4T/lyp9dLWuelQWaE4JF/6aN1S7zYI/NL3+j5a988sJe9wQQ9BsHs/4Ny2sQs0OuYAYKI23PzvLGzLCUZmwhajzduruPFKUwyn7HGI8PApsvg898Gk1m/UbctXyPo8Yowp5LnIiyGGEkyb3EUuafL58q/fl0GzayZZkfXJ6a7P1HBQ0CIWoTdc90D1hOfIav8JPo/ZSTP1XYmUYLChJdnFUOQwkveF3dZ06uJMS2gSM4cXIYImUbypySGf0cA==",
 #         "CommandID": "BusinessPayment",
 #         "Amount": 1,
 #         "PartyA": 600980,
