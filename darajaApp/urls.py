@@ -13,7 +13,7 @@ urlpatterns = [
     path('c2b/validation/', views.validation, name="validation"),
     path('c2b/callback/', views.call_back, name="call_back"),
             #b2c register, confirmation, validation and callback urls
-    # path('b2c/b2c_payments/', views.b2c_payments, name="b2c_payments"),
+    path('b2c/b2c_payments/', views.b2c_payments, name="b2c_payments"),
     # path('b2c/results/', views.resultsView, name="results"),
     # path('b2c/timeout/', views.timeView, name="timeout"),
 
