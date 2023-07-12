@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path 
 import os
+from decouple import config
 os.environ["DJANGO_SETTINGS_MODULE"] = "mpesaApi.settings" 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -113,7 +114,10 @@ USE_I18N = True
 
 USE_TZ = True
 
-
+c2b_consumer_key = config("C2B_CONSUMER_KEY")
+c2b_consumer_secret = config("C2B_CONSUMER_SECRET")
+security_credential =config("SECURITY_CREDENTIAL")
+passKey = config("PASSKEY")
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 

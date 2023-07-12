@@ -3,12 +3,12 @@ import json
 from requests.auth import HTTPBasicAuth
 from datetime import datetime
 import base64
-
+from mpesaApi.settings import *
  
 class MpesaC2bCredential:
    
-    consumer_key= "" #input your consumer key from the sandbox  
-    consumer_secret  = "" #input your consumer secret from the sandbox
+    consumer_key= c2b_consumer_key #input your consumer key from the sandbox  
+    consumer_secret  = c2b_consumer_secret #input your consumer secret from the sandbox
     api_URL = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
 
 
@@ -21,11 +21,10 @@ class MpesaAccessToken:
 
 class LipanaMpesaPpassword:
     lipa_time = datetime.now().strftime('%Y%m%d%H%M%S')
-    Business_short_code = "174379" #for stk push
+    Business_short_code = "9680857" #for stk push
     Test_c2b_shortcode = "600344" #for C2B 
-    passkey = ''  #input your passkey from the safaricom dev portal
-    security_credential = "" #add your security credential
+    passkey = passKey  #input your passkey from the safaricom dev portal
+    # security_credential = security_credential#add your security credential
     data_to_encode = Business_short_code + passkey + lipa_time
-
     online_password = base64.b64encode(data_to_encode.encode())
     decode_password = online_password.decode('utf-8')

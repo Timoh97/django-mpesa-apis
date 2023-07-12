@@ -5,11 +5,11 @@ import json
 from . safaricom_credentials import MpesaAccessToken, LipanaMpesaPpassword
 from django.views.decorators.csrf import csrf_exempt
 from .models import MpesaPayment
-from django.conf import settings
+from mpesaApi.settings import *
 # start of the stk integration
 def getAccessToken(request):
-    consumer_key= settings.c2b_consumer_key #input your consumer key from the sandbox  
-    consumer_secret  = "" #input your consumer secret from the sandbox
+    consumer_key= c2b_consumer_key #input your consumer key from the sandbox  
+    consumer_secret  = c2b_consumer_secret #input your consumer secret from the sandbox
     api_URL = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
 
     r = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
@@ -32,7 +32,7 @@ def lipa_na_mpesa_online(request):
         "Amount": 1,
         "PartyA": 254714919899,  # replace with your phone number to get stk push
         "PartyB": LipanaMpesaPpassword.Business_short_code,
-        "PhoneNumber": 254791418947,  # replace with your phone number to get stk push
+        "PhoneNumber": 254722991833,  # replace with your phone number to get stk push
         "CallBackURL": "https://sandbox.safaricom.co.ke/mpesa/",
         "AccountReference": "hacker",
         "TransactionDesc": "Testing stk push"
@@ -48,7 +48,7 @@ def lipa_na_mpesa_online(request):
 @csrf_exempt
 def register_urls(request):
     access_token = MpesaAccessToken.validated_mpesa_access_token
-   
+    
     api_url = "https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl"
     headers = {"Authorization": "Bearer %s" % access_token}
     
